@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5B5BF0"/>
+      <stop offset="1" stop-color="#2E2A8C"/>
+    </linearGradient>
+    <filter id="lift" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#14123F" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <!-- full-bleed square: viva shapes it into each platform's tile -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- three blocks in place: circle, square, triangle -->
+  <circle cx="350" cy="350" r="128" fill="#EEF0FF"/>
+  <rect x="222" y="546" width="256" height="256" rx="52" fill="#EEF0FF"/>
+  <path d="M674 584 L782 772 L566 772 Z" fill="#EEF0FF" stroke="#EEF0FF" stroke-width="60" stroke-linejoin="round"/>
+  <!-- the fourth block, a plugin being put in -->
+  <g filter="url(#lift)" transform="translate(704 318) rotate(14)">
+    <rect x="-128" y="-128" width="256" height="256" rx="52" fill="#FF7A6B"/>
+  </g>
+</svg>

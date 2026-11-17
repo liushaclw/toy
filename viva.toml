@@ -1,0 +1,7 @@
+[app]
+name = "toy"
+id = "dev.example.toy"
+version = "0.1.0"
+executable = "toy"
+package = "."
+icon = "assets/icon.png"

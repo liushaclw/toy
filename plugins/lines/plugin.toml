@@ -1,0 +1,59 @@
+id = "lines"
+name = "文本行处理"
+version = "1.0.0"
+description = "排序、去重、反转多行文本（Lua 插件示例）"
+runtime = "lua"
+entry = "main.lua"
+
+[[tools]]
+id = "lines"
+name = "文本行处理"
+description = "每行一项：排序、去重或反转，可忽略大小写、去掉首尾空白。"
+timeout = 10
+
+  [[tools.inputs]]
+  id = "text"
+  type = "textarea"
+  label = "输入"
+  placeholder = "每行一项"
+  rows = 8
+
+  [[tools.inputs]]
+  id = "trim"
+  type = "switch"
+  label = "去掉每行首尾空白"
+  default = true
+
+  [[tools.inputs]]
+  id = "ignore_case"
+  type = "switch"
+  label = "忽略大小写"
+
+  [[tools.inputs]]
+  id = "drop_empty"
+  type = "switch"
+  label = "删除空行"
+  default = true
+
+  [[tools.actions]]
+  id = "sort"
+  label = "排序"
+
+  [[tools.actions]]
+  id = "unique"
+  label = "去重"
+
+  [[tools.actions]]
+  id = "reverse"
+  label = "反转"
+
+  [[tools.outputs]]
+  id = "result"
+  type = "text"
+  label = "结果"
+  copyable = true
+
+  [[tools.outputs]]
+  id = "summary"
+  type = "text"
+  label = "统计"

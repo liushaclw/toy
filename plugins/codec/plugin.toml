@@ -1,0 +1,50 @@
+id = "codec"
+name = "编解码"
+version = "1.0.0"
+description = "Base64、URL、Hex、HTML 实体、Unicode 转义、JWT（JavaScript 插件）"
+runtime = "js"
+entry = "main.js"
+
+[[tools]]
+id = "codec"
+name = "编解码"
+description = "文本按 UTF-8 处理。JWT 只能解码，不校验签名。"
+timeout = 10
+
+  [[tools.inputs]]
+  id = "text"
+  type = "textarea"
+  label = "输入"
+  placeholder = "要编码或解码的内容"
+  rows = 8
+
+  [[tools.inputs]]
+  id = "codec"
+  type = "select"
+  label = "格式"
+  options = ["Base64", "Base64 URL", "URL", "Hex", "HTML 实体", "Unicode 转义", "JWT"]
+  default = "Base64"
+
+  [[tools.inputs]]
+  id = "all"
+  type = "switch"
+  label = "转义全部字符（仅对 HTML 实体、Unicode 转义的编码有效）"
+
+  [[tools.actions]]
+  id = "encode"
+  label = "编码"
+
+  [[tools.actions]]
+  id = "decode"
+  label = "解码"
+
+  [[tools.outputs]]
+  id = "result"
+  type = "text"
+  label = "结果"
+  copyable = true
+
+  [[tools.outputs]]
+  id = "info"
+  type = "text"
+  label = "信息"

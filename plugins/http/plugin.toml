@@ -1,0 +1,92 @@
+id = "http"
+name = "HTTP 工具"
+version = "1.0.0"
+description = "发送 HTTP 请求，常用的请求可以保存下来（JavaScript 插件，用 host.http）"
+runtime = "js"
+entry = "main.js"
+
+[[tools]]
+id = "request"
+name = "HTTP 请求"
+description = "填好请求点「发送」；起个名字点「保存」，以后在「已保存的请求」里一选就载入。"
+timeout = -1   # the request has its own timeout below
+init = "list"  # fill 已保存的请求 when the tool opens
+
+  [[tools.inputs]]
+  id = "saved"
+  type = "select"
+  label = "已保存的请求"
+  on_change = "load"
+
+  [[tools.inputs]]
+  id = "method"
+  type = "select"
+  label = "方法"
+  options = ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
+  default = "GET"
+
+  [[tools.inputs]]
+  id = "url"
+  label = "URL"
+  placeholder = "https://example.com/api"
+  required = true
+
+  [[tools.inputs]]
+  id = "headers"
+  type = "textarea"
+  label = "请求头"
+  placeholder = "每行一个，例如 Authorization: Bearer xxx"
+  rows = 4
+
+  [[tools.inputs]]
+  id = "body"
+  type = "textarea"
+  label = "请求体"
+  placeholder = "JSON 会自动加上 Content-Type: application/json"
+  rows = 8
+
+  [[tools.inputs]]
+  id = "timeout"
+  type = "number"
+  label = "超时（秒）"
+  default = 30
+
+  [[tools.inputs]]
+  id = "follow"
+  type = "switch"
+  label = "跟随重定向"
+  default = true
+
+  [[tools.inputs]]
+  id = "name"
+  label = "保存为"
+  placeholder = "给这个请求起个名字"
+
+  [[tools.actions]]
+  id = "send"
+  label = "发送"
+
+  [[tools.actions]]
+  id = "save"
+  label = "保存"
+
+  [[tools.actions]]
+  id = "delete"
+  label = "删除已保存"
+  style = "danger-outline"
+  requires = ["saved"]
+  confirm = "确定删除已保存的请求「{saved}」吗？删除后无法恢复。"
+
+  [[tools.outputs]]
+  id = "status"
+  label = "状态"
+
+  [[tools.outputs]]
+  id = "body"
+  label = "响应体"
+  copyable = true
+
+  [[tools.outputs]]
+  id = "headers"
+  type = "table"
+  label = "响应头"

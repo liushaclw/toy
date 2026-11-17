@@ -1,0 +1,45 @@
+id = "hash"
+name = "哈希计算"
+version = "1.0.0"
+description = "计算文本或文件的 MD5 / SHA 摘要（exec 插件示例，Go 编写）"
+runtime = "exec"
+# 开发时用 go run；发布时可以改成编译好的程序，例如 command = ["hash"]（hash.exe 放在本目录）。
+command = ["go", "run", "."]
+
+[[tools]]
+id = "hash"
+name = "哈希计算"
+description = "选一个文件，或直接输入文本（选了文件时以文件为准）。"
+timeout = 300
+
+  [[tools.inputs]]
+  id = "file"
+  type = "file"
+  label = "文件"
+  placeholder = "选择或粘贴路径"
+
+  [[tools.inputs]]
+  id = "text"
+  type = "textarea"
+  label = "文本"
+  rows = 4
+
+  [[tools.inputs]]
+  id = "upper"
+  type = "switch"
+  label = "大写输出"
+
+  [[tools.actions]]
+  id = "hash"
+  label = "计算"
+
+  [[tools.outputs]]
+  id = "digests"
+  type = "table"
+  label = "摘要"
+
+  [[tools.outputs]]
+  id = "sha256"
+  type = "text"
+  label = "SHA-256"
+  copyable = true

@@ -1,0 +1,54 @@
+id = "json-tool"
+name = "JSON 工具"
+version = "1.0.0"
+description = "格式化、压缩 JSON，把对象数组显示成表格（JavaScript 插件示例）"
+runtime = "js"
+entry = "main.js"
+
+[[tools]]
+id = "json"
+name = "JSON 格式化"
+description = "粘贴 JSON：格式化或压缩；对象数组可以转成表格。"
+timeout = 10
+
+  [[tools.inputs]]
+  id = "text"
+  type = "textarea"
+  label = "JSON"
+  placeholder = '{"name": "toy"}'
+  rows = 10
+
+  [[tools.inputs]]
+  id = "indent"
+  type = "select"
+  label = "缩进"
+  options = ["2 空格", "4 空格", "Tab"]
+  default = "2 空格"
+
+  [[tools.inputs]]
+  id = "sort_keys"
+  type = "switch"
+  label = "按键名排序"
+
+  [[tools.actions]]
+  id = "format"
+  label = "格式化"
+
+  [[tools.actions]]
+  id = "minify"
+  label = "压缩"
+
+  [[tools.actions]]
+  id = "table"
+  label = "转为表格"
+
+  [[tools.outputs]]
+  id = "result"
+  type = "text"
+  label = "结果"
+  copyable = true
+
+  [[tools.outputs]]
+  id = "table"
+  type = "table"
+  label = "表格"
